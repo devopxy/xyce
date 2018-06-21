@@ -4,11 +4,24 @@ FROM blacklabelops/centos:7
 LABEL maintainer "Mangesh Bhalerao <mangesh {{at}} devopxy {{dot}} com "
 
 ## core dependencies
-RUN yum install -y make automake cmake gcc gcc-c++ gcc-gfortran blas-devel cmake lapack-devel bison flex fftw-devel suitesparse-devel epel-release
-
-## Paralel version
-
-RUN yum install -y openmpi-devel metis-devel metis64-devel
+RUN yum install -y make \
+    automake \
+    cmake  \
+    gcc \ 
+    gcc-c++ \
+    gcc-gfortran \
+    blas-devel \
+    cmake \
+    lapack-devel \
+    bison \
+    flex \
+    fftw-devel \
+    suitesparse-devel \
+    epel-release \
+    ## Paralel version
+    openmpi-devel \
+    metis-devel \
+    metis64-devel
 
 ENV PATH=$PATH:/usr/lib64/openmpi/bin/
 ENV XYCE_SRCDIR=/opt/Xyce/
